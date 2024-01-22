@@ -15,6 +15,13 @@ def decrypt_file(file_path, file_password):
     return decrypted_workbook
 
 
+def find_cell(sheet, string_column, target_column, search_string):
+    for cell in sheet[string_column]:
+        if cell.value is not None:
+            if cell.value == search_string:
+                return target_column + str(cell.row)
+
+
 def edit_workbook(workbook, file_path):
     wb = load_workbook(workbook)
     sheet = wb.active
@@ -50,8 +57,11 @@ if __name__ == '__main__':
     #         if file.endswith('.xlsx'):
     #             if ("KPI_Архив" not in root) & ("ДЕМО" not in root) & ("Общая таблица" not in root):
     #                 print(os.path.join(root, file))
-    dir_path = r'C:\Users\Amanat\Desktop\test\test.xlsx'
-    password = 'qwe'
-    pass_w = "qweqwe"
-    edit_workbook(decrypt_file(dir_path, "123"), dir_path)
-    set_wb_pass(dir_path, password, pass_w)
+    # dir_path = r'C:\Users\Amanat\Desktop\test\test.xlsx'
+    # password = 'qwe'
+    # pass_w = "qweqwe"
+    # edit_workbook(decrypt_file(dir_path, "123"), dir_path)
+    # set_wb_pass(dir_path, password, pass_w)
+    test_wb = load_workbook(r"E:\Главный энергетик\Исмагилов М.М..xlsx")
+    test_sheet = test_wb.active
+    print(test_sheet[find_cell(test_sheet, "A", "D", "Трудовая дисциплина")].value)

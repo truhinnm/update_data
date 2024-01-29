@@ -11,7 +11,7 @@ users = {
     "Бабенко Д.А..xlsx": ["Amanat6305", "Amanat6305Ed"],
     "Галочкин Е.С..xlsx": ["Amanat3940", "Amanat3940Ed"],
     "Губеева О.В..xlsx": ["Amanat9440", "Amanat9440Ed"],
-    "Давыдов Р.Л..xlsx": ["Amanat9771", "Amanat9771Ed"],
+    "Давыдов Р.П..xlsx": ["Amanat9771", "Amanat9771Ed"],
     "Калимуллин Р.Р..xlsx": ["Amanat3138", "Amanat3138Ed"],
     "Каримов Ф.Ф..xlsx": ["Amanat4259", "Amanat4259Ed"],
     "Лукин Е.А..xlsx": ["Amanat3802", "Amanat3802Ed"],

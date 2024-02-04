@@ -90,7 +90,7 @@ if __name__ == '__main__':
 
     # Открываем общие таблицы
 
-    main_path = r"C:\Users\nick_\Desktop\kpi formulas\Общая таблица"
+    main_path = r"\\192.168.88.16\kpi\Общая таблица"
     m_tables = open_main_tables(main_path)
     id_wb = load_workbook(m_tables["Исполнительская дисциплина.xlsx"], data_only=True)
     td_wb = load_workbook(m_tables["Трудовая дисциплина.xlsx"], data_only=True)
@@ -98,11 +98,12 @@ if __name__ == '__main__':
 
     # Начинаем обработку индивидуальных листов
 
-    for root, dirs, files in os.walk(r"C:\Users\nick_\Desktop\kpi formulas"):
+    for root, dirs, files in os.walk(r"\\192.168.88.16\kpi"):
         for file in files:
             if file.endswith('.xlsx') and not file.startswith('~$'):
                 if ("KPI_Архив" not in root) & ("ДЕМО" not in root) & ("Общая таблица" not in root):
                     filepath = os.path.join(root, file)
+                    print("working on" + filepath)
 
                     # Открываем индивидуальную таблицу
 
@@ -124,6 +125,7 @@ if __name__ == '__main__':
 
                     ind_wb.save(filepath)
                     set_wb_pass(filepath, users[file][0], users[file][1])
+                    print("DONE")
 
     # Сохраняем общую таблицу
 
@@ -131,6 +133,7 @@ if __name__ == '__main__':
     set_wb_pass(os.path.join(main_path, "KPI общая таблица.xlsx"),
                 main_tables["KPI общая таблица.xlsx"][0],
                 main_tables["KPI общая таблица.xlsx"][1])
+    print("FINALLY")
 
 
 
